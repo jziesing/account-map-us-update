@@ -5,7 +5,8 @@
 
 
 let express = require('express'),
-	bodyParser = require('body-parser');
+	bodyParser = require('body-parser'),
+  path = require('path');
 
 
 
@@ -17,7 +18,15 @@ let port = process.env.PORT || 3000;
 // app.use(bodyParser.text());
 //app.use(bodyParser.json());
 
-app.use(express.static(__dirname + '/../client-build/'));
+//app.use(express.static(__dirname + '/../client-build/'));
+
+// app.get('/*', function(req, res) {
+//   res.sendFile(path.join(__dirname, '/../client-build/', 'index.html'))
+// })
+
+const publicPath = path.join(__dirname, '/../client-build/');
+app.use(express.static(publicPath));
+app.use('*', express.static(publicPath));
 
 
 //  run
