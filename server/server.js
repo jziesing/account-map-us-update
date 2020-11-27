@@ -16,13 +16,8 @@ let port = process.env.PORT || 3000;
 
 // parsing
 // app.use(bodyParser.text());
-//app.use(bodyParser.json());
+app.use(bodyParser.json());
 
-//app.use(express.static(__dirname + '/../client-build/'));
-
-// app.get('/*', function(req, res) {
-//   res.sendFile(path.join(__dirname, '/../client-build/', 'index.html'))
-// })
 
 const publicPath = path.join(__dirname, '/../client-build/');
 app.use(express.static(publicPath));
