@@ -22,5 +22,4 @@ module.exports = {
     devServer: {
       contentBase: path.resolve(__dirname, './dist'),
     }
-    //plugins: ["@babel/plugin-proposal-class-properties"]
 }
