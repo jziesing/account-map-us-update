@@ -6,7 +6,7 @@
 
 let express = require('express'),
 	bodyParser = require('body-parser'),
-  path = require('path'),
+	path = require('path'),
 	apiRoutes = require('./api-routes');
 
 
@@ -14,10 +14,6 @@ let express = require('express'),
 //  create server app
 let app = express();
 let port = process.env.PORT || 3000;
-
-
-// hack
-// process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 
 
 // api

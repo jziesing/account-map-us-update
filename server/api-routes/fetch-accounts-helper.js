@@ -8,40 +8,38 @@ const { Client } = require('pg');
 
 class FetchAccountsHelper {
 
-    constructor() {
+	constructor() {
 		// methods
-        this.fetchAccounts = this.fetchAccounts.bind(this);
-    }
+		this.fetchAccounts = this.fetchAccounts.bind(this);
+	}
 
-    fetchAccounts() {
-        return new Promise((resolve, reject) => {
+	fetchAccounts() {
+		return new Promise((resolve, reject) => {
 
 			console.log('Entered helper fetch accounts functions');
 
-            let currclient = new Client({
-                connectionString: process.env.DATABASE_URL,
-                ssl: true,
-            });
+			let currclient = new Client({
+				connectionString: process.env.DATABASE_URL,
+				ssl: true,
+			});
 
 			let dataResult;
 			let queryString = 'SELECT id, sfid, name, billingstreet, billingcity, billingstate, billingpostalcode, billingcountry, billinglatitude, billinglongitude FROM salesforce.account WHERE billingcountry = \'USA\' AND billinglatitude IS NOT NULL;';
 
-            currclient.connect();
+			currclient.connect();
 
-            currclient.query(queryString).then(res => {
-
+			currclient.query(queryString).then(res => {
 				dataResult = res.rows;
-
-            }).catch(err => {
+			}).catch(err => {
+				console.log('ERROR');
 				console.log(err);
 				reject(err);
 			}).finally(() => {
 				currclient.end();
 				resolve(dataResult);
 			});
-        });
-
-    }
+		});
+	}
 }
 
 module.exports = FetchAccountsHelper;
