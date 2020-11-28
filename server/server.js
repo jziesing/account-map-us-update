@@ -6,7 +6,8 @@
 
 let express = require('express'),
 	bodyParser = require('body-parser'),
-  path = require('path');
+  path = require('path'),
+	apiRoutes = require('./api-routes');
 
 
 
@@ -14,11 +15,17 @@ let express = require('express'),
 let app = express();
 let port = process.env.PORT || 3000;
 
-// parsing
-// app.use(bodyParser.text());
+
+// hack
+// process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
+
+
+// api
 app.use(bodyParser.json());
+app.use(apiRoutes);
 
 
+// client
 const publicPath = path.join(__dirname, '/../client-build/');
 app.use(express.static(publicPath));
 app.use('*', express.static(publicPath));
