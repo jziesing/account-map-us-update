@@ -9,22 +9,22 @@ import About from './about';
 import Login from './login';
 
 const App = () => (
-  <Router>
-    <div>
-      <header>
-        <Link to="/about">About</Link>
-        {' '}
-        <Link to="/">Login</Link>
-        {' '}
-      </header>
-      <main>
-        <Switch>
-          <Route exact path="/" component={Login} />
-          <Route path="/about" component={About} />
-        </Switch>
-      </main>
-    </div>
-  </Router>
+	<Router>
+		<div>
+			<header>
+				<Link to="/about">About</Link>
+				{' '}
+				<Link to="/">Login</Link>
+				{' '}
+			</header>
+			<main>
+				<Switch>
+					<Route exact path="/" component={Login} />
+					<Route path="/about" component={About} />
+				</Switch>
+			</main>
+		</div>
+	</Router>
 );
 
 export default App;

@@ -38,7 +38,6 @@ class AddAccountHelper {
 			});
 		});
 	}
-
 }
 
 module.exports = AddAccountHelper;

@@ -37,9 +37,7 @@ class AddExtDataHelper {
 				resolve(dataResult);
 			});
 		});
-
 	}
-
 }
 
 module.exports = AddExtDataHelper;

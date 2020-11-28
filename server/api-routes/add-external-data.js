@@ -29,7 +29,6 @@ class AddExtData {
 								return res.sendStatus(400);
 							});
 	}
-
 }
 
 module.exports = AddExtData;

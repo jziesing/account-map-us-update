@@ -29,7 +29,6 @@ class AddAccount {
 								console.log(err);
 								return res.sendStatus(400);
 							});
-
 	}
 }
 
